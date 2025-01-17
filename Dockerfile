@@ -4,7 +4,7 @@ ARG MONGODB_URI
 
 FROM node:18-alpine AS base
 
-ENV REACT_APP_MONGODB_URI=$MONGODB_URI
+RUN echo "MONGODB_URI=${MONGODB_URI}" >> .env.local
 
 # Install dependencies only when needed
 FROM base AS deps
