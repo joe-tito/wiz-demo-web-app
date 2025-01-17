@@ -1,10 +1,21 @@
-import dbConnect from "./lib/db";
-import Reason from "./models/Reason";
+"use client";
 
-export default async function Home() {
-  await dbConnect();
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-  const reasons = await Reason.find({});
+interface Reason {
+  _id: string;
+  reason: string;
+}
+
+export default function Home() {
+  const [reasons, setReasons] = useState<Reason[]>([]);
+
+  useEffect(() => {
+    axios.get("/api/reasons").then((response) => {
+      setReasons(response.data.reasons);
+    });
+  }, []);
 
   return (
     <div className="flex h-screen bg-neutral-900">
@@ -20,7 +31,7 @@ export default async function Home() {
         <div className="space-y-1 animate-fade-up animate-once animate-duration-[3000ms] animate-delay-[1000ms] animate-ease-out">
           {reasons.map((reason) => (
             <div
-              key={reason._id}
+              key={reason.reason}
               className="flex text-3xl font-semibold text-neutral-500"
             >
               <svg
