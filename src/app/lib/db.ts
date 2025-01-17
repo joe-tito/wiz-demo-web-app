@@ -1,12 +1,14 @@
 import mongoose from "mongoose";
 
-declare global {
-  var mongoose: any; // This must be a `var` and not a `let / const`
-}
+// declare global {
+//   var mongoose: any; // This must be a `var` and not a `let / const`
+// }
 
+// @ts-expect-error Parameter 'mongoose' implicitly has an 'any' type.ts(7006)
 let cached = global.mongoose;
 
 if (!cached) {
+  // @ts-expect-error Parameter 'mongoose' implicitly has an 'any' type.ts(7006)
   cached = global.mongoose = { conn: null, promise: null };
 }
 
