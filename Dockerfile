@@ -19,7 +19,8 @@ RUN npm ci;
 # Rebuild the source code only when needed
 FROM base AS builder
 WORKDIR /app
-RUN echo "MONGODB_URI=${MONGODB_URI}" >> /app/.env.local
+RUN echo "MONGODB_URI=$MONGODB_URI" >> /app/.env.local
+RUN cat /app/.env.local
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
