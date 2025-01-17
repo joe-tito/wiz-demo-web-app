@@ -4,8 +4,6 @@ ARG MONGODB_URI
 
 FROM node:18-alpine AS base
 
-RUN echo "MONGODB_URI=${MONGODB_URI}" >> .env.local
-
 # Install dependencies only when needed
 FROM base AS deps
 # Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
@@ -19,6 +17,7 @@ RUN npm ci;
 # Rebuild the source code only when needed
 FROM base AS builder
 WORKDIR /app
+RUN echo "MONGODB_URI=${MONGODB_URI}" >> .env.local
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
