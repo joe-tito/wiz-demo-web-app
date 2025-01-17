@@ -1,6 +1,10 @@
 # syntax=docker.io/docker/dockerfile:1
 
+ARG MONGODB_URI
+
 FROM node:18-alpine AS base
+
+ENV MONGODB_URI=$MONGODB_URI
 
 # Install dependencies only when needed
 FROM base AS deps
