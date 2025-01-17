@@ -19,6 +19,7 @@ COPY . .
 
 RUN npm run build --experimental-build-mode=compile
 
+
 # Production image, copy all the files and run next
 FROM base AS runner
 WORKDIR /app
