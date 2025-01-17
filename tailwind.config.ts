@@ -8,22 +8,11 @@ export default {
   ],
   theme: {
 		extend: {
-			animation: {
-				headerTop: 'fadeIn 2s ease-in-out',
-        headerBottom: 'fadeIn 3s ease-in-out',
-        reason: 'fadeIn 4s ease-in-out'
-			},
-			keyframes: {
-				fadeIn: {
-					from: { opacity: "0" },
-					to: { opacity: "1" },
-				},
-			},
       lineHeight: {
         'header': '4.5rem',
         '12': '3rem',
       }
 		},
 	},
-  plugins: [],
+  plugins: [require('tailwindcss-animated')],
 } satisfies Config;
