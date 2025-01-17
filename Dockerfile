@@ -1,10 +1,6 @@
 # syntax=docker.io/docker/dockerfile:1
 
-ARG MONGODB_URI
-
 FROM node:18-alpine AS base
-
-ENV MONGODB_URI=$MONGODB_URI
 
 # Install dependencies only when needed
 FROM base AS deps
@@ -13,14 +9,12 @@ RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
 # Install dependencies based on the preferred package manager
-COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* .npmrc* ./
+COPY package.json package-lock.json* ./
 RUN npm ci;
 
 # Rebuild the source code only when needed
 FROM base AS builder
 WORKDIR /app
-RUN echo "MONGODB_URI=$MONGODB_URI" >> /app/.env.local
-RUN cat /app/.env.local
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
