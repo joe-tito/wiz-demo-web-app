@@ -5,7 +5,7 @@ import Reason from "@/models/Reason";
 
 export async function GET() {
 
-    console.log(process.env.MONGODB_URI);
+    // console.log(process.env.MONGODB_URI);
 
     await dbConnect();
 

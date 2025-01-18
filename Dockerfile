@@ -32,7 +32,7 @@ CMD npm start
 
 FROM base as dev
 ENV NODE_ENV=development
-RUN echo "MONGODB_URI=$MONGODB_URI" >> .env.local
+COPY .env.local .
 RUN npm install 
 COPY . .
 CMD npm run dev
