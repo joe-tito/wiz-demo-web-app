@@ -22,4 +22,4 @@ docker:
     - docker build --cache-from $TAG_LATEST -t $TAG_COMMIT -t $TAG_LATEST .
     - docker push $TAG_COMMIT
     - docker push $TAG_LATEST
-    - aws ecs update-service --cluster wiz-demo-cluster --service web-app-service --region=$AWS_REGION --force-new-deployment
+    - aws ecs update-service --cluster wiz-demo-cluster --service wiz-demo-web-app --region=$AWS_REGION --force-new-deployment
