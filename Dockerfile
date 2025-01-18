@@ -4,6 +4,8 @@ WORKDIR /app
 COPY package*.json ./
 EXPOSE 3000
 
+ARG MONGODB_URI
+
 FROM base as builder
 WORKDIR /app
 COPY . .
@@ -30,6 +32,7 @@ CMD npm start
 
 FROM base as dev
 ENV NODE_ENV=development
+ENV NEXT_PUBLIC_MONGODB_URI=$MONGODB_URI
 RUN npm install 
 COPY . .
 CMD npm run dev
