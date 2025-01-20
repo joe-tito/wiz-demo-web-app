@@ -22,4 +22,3 @@ docker:
     - docker build --build-arg MONGODB_URI=$MONGODB_URI --cache-from $TAG_LATEST -t $TAG_COMMIT -t $TAG_LATEST .
     - docker push $TAG_COMMIT
     - docker push $TAG_LATEST
-    - aws ecs update-service --cluster wiz-demo-cluster --service wiz-demo-web-app --region=$AWS_REGION --force-new-deployment
