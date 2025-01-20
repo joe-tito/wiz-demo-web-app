@@ -25,7 +25,7 @@ export default function Home() {
             Reasons why you{" "}
           </div>
           <div className="animate-fade-down animate-once animate-duration-[3000ms] animate-delay-[500ms] animate-ease-out">
-            should hire <span className="text-teal-500">Joe</span>
+            should hire <span className="text-teal-500">Joe</span>:
           </div>
         </div>
         <div className="space-y-1 animate-fade-up animate-once animate-duration-[3000ms] animate-delay-[1000ms] animate-ease-out">
