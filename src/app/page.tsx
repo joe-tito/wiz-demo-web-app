@@ -22,10 +22,10 @@ export default function Home() {
       <div className="m-auto">
         <div className="text-6xl font-bold mb-4 leading-header">
           <div className="animate-fade-down animate-once animate-duration-[3000ms] animate-ease-out">
-            Reasons why you{" "}
+            Reasons why <span className="text-teal-500">Joe</span> would
           </div>
           <div className="animate-fade-down animate-once animate-duration-[3000ms] animate-delay-[500ms] animate-ease-out">
-            should hire <span className="text-teal-500">Joe</span>:
+            make a great <span className="text-blue-800">Wizard</span>
           </div>
         </div>
         <div className="space-y-1 animate-fade-up animate-once animate-duration-[3000ms] animate-delay-[1000ms] animate-ease-out">
