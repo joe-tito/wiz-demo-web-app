@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <div className="flex h-screen bg-neutral-900">
       <div className="m-auto">
-        <div className="text-6xl font-bold mb-4 leading-header">
+        <div className="text-neutral-300 text-6xl font-bold mb-4 leading-header">
           <div className="animate-fade-down animate-once animate-duration-[3000ms] animate-ease-out">
             Reasons why <span className="text-teal-500">Joe</span> would
           </div>
