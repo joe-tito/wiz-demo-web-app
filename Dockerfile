@@ -5,7 +5,7 @@ RUN apk add --no-cache libc6-compat
 EXPOSE 3000
 
 ENV PORT 3000
-ENV NODE_ENV production
+# ENV NODE_ENV production
 
 WORKDIR /home/nextjs/app
 
